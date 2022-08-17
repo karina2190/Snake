@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background: #111;
+}
+
+canvas {
+  border: solid 25px rgb(2, 67, 21);
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 42.13%;
+  padding: 10px;
+  height: 50px; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body style="background-color:rgb(5, 4, 4)">
+  <div class="row">
+    <div class="column" style="background-color:rgb(6, 93, 35);">
+    </div>
+    </div>
+  <canvas id="canvas" width="550" height="550">&lt;canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      var data = "<table style="background-color:pink">" +
+                   "<tr>" +
+                     "<th'>" +
+                     "<th'>" +
+                     "<th'>" +
+                    "</tr>" + 
+                  "</table>" +
+                        "<table border='1'><tr><td>row 1, cell 1</td><td>row 1, cell 2</td></tr><tr><td>row 2, cell 1</td><td>row 2, cell 2</td></tr></table>" +
+                     "</div>" +
+                   "</foreignObject>" +
+                 "</svg>";
+      
+      var DOMURL = self.URL || self.webkitURL || self;
+      var img = new Image();
+      var svg = new Blob([data], {type: "image/svg+xml;charset=utf-8"});
+      var url = DOMURL.createObjectURL(svg);
+      img.onload = function() {
+          ctx.drawImage(img, 0, 0);
+          DOMURL.revokeObjectURL(url);
+      };
+      img.src = url;
+      </script>​
+
+
+</body>
+</html>
